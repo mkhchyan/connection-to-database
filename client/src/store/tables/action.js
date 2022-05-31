@@ -1,4 +1,4 @@
-import { DELETE_TABLE_ROW, GET_TABLE, GET_TABLE_DATA } from "./types"
+import { GET_TABLE, GET_TABLE_DATA } from "./types"
 
 export const setTables = (tables) => {
     return {
@@ -14,9 +14,3 @@ export const setTablesData = (data) => {
     }
 }
 
-export const deleteTableRow = (row) => {
-    return {
-        type: DELETE_TABLE_ROW,
-        row: row
-    }
-}
