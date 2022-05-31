@@ -19,7 +19,6 @@ app.get("/", (req, res) => {
 app.post("/getdatabases", DatabaseController.getDatabases)
 app.post("/getTables/:database_name",TablesController.getTables)
 app.post("/getTablesData/:table_name/:database_name", TablesDataController.getTableData)
-app.delete("/deleteTableRow", TablesDataController.deleteTableRow)
 
 app.listen(port, () =>
     console.log(`Server started`)
