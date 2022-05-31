@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router-dom"
 export const TablesData = () => {
     const { tableName, databaseName, row } = useParams()
     const { tablesData } = useSelector((state) => state.tables);
-    // console.log("data", tablesData);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -13,12 +12,7 @@ export const TablesData = () => {
         dispatch({ type: "GET_TABLES_DATA", row, tableName, databaseName, tablesData, navigate })
     }, [])
 
-    const handleDeleteRow = (row) => {
-        dispatch({ type: "DELETE_ROW", row,  tablesData, navigate })
-        // console.log("deleted");
-    }
-
-    return <>
+       return <>
         <h1>
             Data of {tableName}
         </h1>
@@ -39,7 +33,7 @@ export const TablesData = () => {
                 </thead >
                 <tbody>
                     {
-                        tablesData?.tablesData?.map((row, index) => { //հարցականը գրվում ա undefined-ի դեպքում էռոռ չտալու համար, մինչև դատան բերի
+                        tablesData?.tablesData?.map((row, index) => { 
                             return (
                                 <tr key={index} >
                                     {
@@ -51,10 +45,7 @@ export const TablesData = () => {
                                             )
                                         })
                                     }
-                                    <td>
-                                        <button className="btn btn-danger" onClick={() => handleDeleteRow(row)}>Delete</button>
-                                    </td>
-                                </tr>
+                                 </tr>
                             )
                         })
                     }
